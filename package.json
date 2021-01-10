@@ -4,6 +4,7 @@
 	"description": "An FCC Backend Challenge",
 	"main": "server.js",
 	"scripts": {
+		"watch": "nodemon",
 		"start": "node server.js"
 	},
 	"dependencies": {
