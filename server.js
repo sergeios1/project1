@@ -19,6 +19,10 @@ app.get("/", function (req, res) {
 });
 
 
+app.get("/api/timestamp/",(req,res) =>{
+  res.json({hi: "bis"});
+})
+
 // your first API endpoint... 
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
