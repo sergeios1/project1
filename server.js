@@ -31,13 +31,18 @@ app.get("/api/timestamp/:word",(req,res)=>{
     res.json({unix: date.toString(), utc:new Date(data).toUTCString()});
   }
   else{
-    let dat = new Date(date)
-    res.json({unix: dat.valueOf(), utc:dat.toUTCString()})
-  }
+    let dat = new Date(date);
+    if(dat.toString() === "Invalid Date"){
+      res.json({"error": "Invalid Date"});
+    }
+    else{ 
+      res.json({unix: dat.valueOf(), utc: dat.toUTCString()});
+    }
+}
 })
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(3000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
@@ -45,7 +50,9 @@ var listener = app.listen(process.env.PORT, function () {
 
 
 
-
+//https://projesdfasdfasdf.herokuapp.com/
+//else{
+  //      // }
 
 
 
