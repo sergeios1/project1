@@ -28,11 +28,11 @@ app.get("/api/timestamp/:word",(req,res)=>{
 
   if(/\d{5,}/.test(date)){
     const data = parseInt(date);
-    res.json({"unix": date.toString(), "utc":new Date(data).toUTCString()});
+    res.json({unix: date.toString(), utc:new Date(data).toUTCString()});
   }
   else{
     let dat = new Date(date)
-    res.json({"unix": dat.valueOf(), "utc":dat.toUTCString()})
+    res.json({unix: dat.valueOf(), utc:dat.toUTCString()})
   }
 })
 
