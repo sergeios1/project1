@@ -23,6 +23,10 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+app.get("/api/timesestamp/", (req, res) => {
+  res.json({unix: Date.now(), utc: Date()})
+})
+
 app.get("/api/timestamp/:word",(req,res)=>{
   let date = req.params.word;
 
@@ -39,9 +43,6 @@ app.get("/api/timestamp/:word",(req,res)=>{
     else{ 
       res.json({unix: dat.valueOf(), utc: dat.toUTCString()});
     }
-}
-else{
-  res.json({"utc": new Date().toUTCString()})
 }
 })
 
