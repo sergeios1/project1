@@ -28,10 +28,11 @@ app.get("/api/timestamp/:word",(req,res)=>{
 
   if(/\d{5,}/.test(date)){
     const data = parseInt(date);
-    res.json({unix: date.toString(), utc:new Date(data).toUTCString()});
+    res.json({unix: data, utc:new Date(data).toUTCString()});
   }
   else{
     let dat = new Date(date);
+    
     if(dat.toString() === "Invalid Date"){
       res.json({"error": "Invalid Date"});
     }
@@ -42,7 +43,7 @@ app.get("/api/timestamp/:word",(req,res)=>{
 })
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(3000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
