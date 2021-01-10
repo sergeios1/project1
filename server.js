@@ -23,7 +23,7 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-app.get("/api/timesestamp/", (req, res) => {
+app.get("/api/timestamp/", (req, res) => {
   res.json({unix: Date.now(), utc: Date()})
 })
 
