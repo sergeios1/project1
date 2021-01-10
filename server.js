@@ -34,7 +34,7 @@ app.get("/api/timestamp/:word",(req,res)=>{
     const data = parseInt(date);
     res.json({unix: data, utc:new Date(data).toUTCString()});
   }
-  else if(/^\d/.test(date)){
+  else{
     let dat = new Date(date);
     
     if(dat.toString() === "Invalid Date"){
