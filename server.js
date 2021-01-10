@@ -19,8 +19,18 @@ app.get("/", function (req, res) {
 });
 
 
-app.get("/api/timestamp/",(req,res) =>{
-  res.json({hi: "bis"});
+app.get("/api/timestamp/:word",(req,res) =>{
+  if(req.params.word.length>10){
+    let date = new Date(req.params.word * 1000);
+    let unix = date.valueOf();
+    let utc = date.toUTCString();
+    res.json({"unix": unix, "utc": utc});
+  }else{
+    let date = new Date(req.params.word);
+    let unix = date.valueOf();
+    let utc = date.toUTCString();
+    res.json({"unix": unix, "utc": utc});
+  }
 })
 
 // your first API endpoint... 
@@ -31,6 +41,6 @@ app.get("/api/hello", function (req, res) {
 
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(3000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
