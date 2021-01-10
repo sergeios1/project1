@@ -18,7 +18,7 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
+/*
 app.get("/api/timestamp/:word",(req,res) =>{
   if(req.params.word.length>10){
     let date = new Date(req.params.word * 1000);
@@ -32,6 +32,7 @@ app.get("/api/timestamp/:word",(req,res) =>{
     res.json({"unix": unix, "utc": utc});
   }
 })
+*/
 
 // your first API endpoint... 
 app.get("/api/hello", function (req, res) {
